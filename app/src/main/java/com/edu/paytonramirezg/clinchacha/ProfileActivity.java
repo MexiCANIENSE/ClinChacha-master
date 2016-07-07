@@ -105,11 +105,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //get current username and input into get data function
-        Intent intentget = getIntent();
+        /*Intent intentget = getIntent();
         Bundle b = intentget.getExtras();
         if (b != null) {
             ACTIVEUSERNAME = (String) b.get("ACTIVEUSERNAME");
-        }
+        }*/
+
+        SharedPreferences prefs = getSharedPreferences("tokenUser", Context.MODE_PRIVATE);
+        ACTIVEUSERNAME = prefs.contains("User") ? prefs.getString("User", null) : "";
 
         getData();
         //end retrieve data base info
@@ -193,10 +196,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }//end server call method
 
     public void onBackPressed() {
+        finish();
+        /*
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         intent.putExtra("ACTIVEUSERNAME", ACTIVEUSERNAME);
         intent.putExtra("stripeToken", KEY_TOKEN);
-        startActivity(intent);
+        startActivity(intent);*/
+
     }
 
 
@@ -276,6 +282,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 editstatus = 0;
                 submitButton=(Button)findViewById(id.submitButton);
                 submitButton.setVisibility(View.VISIBLE);
+
                 SharedPreferences userProfile = getSharedPreferences("tokenUser", Context.MODE_PRIVATE);
                 String prefString = userProfile.getString("User", "");
 
@@ -427,6 +434,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                 RequestQueue requestQueue = Volley.newRequestQueue(ProfileActivity.this);
                 requestQueue.add(stringRequest);
+
+                //GUARDAR STRIPE TOKEN EN SHARED PREFERENCES
+
+                SharedPreferences tokenUser = getSharedPreferences("tokenUser", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = tokenUser.edit();
+
+                editor.putString("StripeToken", token.getId());
+                editor.commit();
 
                 Toast.makeText(
                         getApplicationContext(),
