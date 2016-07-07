@@ -21,6 +21,18 @@
 
     <string name="et_lavanderia">Lavandería</string>
     <string name="costo_lavanderia"></string>
+    <string name="et_delicado">Delicado</string>
+    <string name="costo_delicado"></string>
+    <string name="et_traje2piezas">Traje 2 piezas</string>
+    <string name="et_abrigo">Abrigo</string>
+    <string name="et_edredon">Edredón</string>
+    <string name="et_planchado">Planchado</string>
+    <string name="et_chaleco">Chaleco</string>
+    <string name="et_chamarra">Chamarra</string>
+    <string name="et_falda">Falda</string>
+    <string name="et_sueter">Sueter</string>
+    <string name="et_palatzo">Palatzo</string>
+    <string name="et_vestido">Vestido</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
