@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin_bottom"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="0dp"
+    tools:context="com.edu.paytonramirezg.clinchacha.ProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#3c7557"
+        android:id="@+id/relativeLayout14" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#fff"
+        android:id="@+id/relativeLayout12"
+        android:layout_below="@+id/relativeLayout14"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/imageView31"
+            android:src="@mipmap/ic_luser"
+            android:layout_above="@+id/relativeLayout22"
+            android:layout_toLeftOf="@+id/header_P"
+            android:layout_toStartOf="@+id/header_P" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Información de Perfil: "
+            android:id="@+id/header_P"
+            android:textSize="10pt"
+            android:layout_above="@+id/relativeLayout22"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="50dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="#000000"
+            android:id="@+id/relativeLayout22"></RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#3c7557"
+        android:layout_below="@+id/relativeLayout12"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout8" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout8"
+        android:layout_above="@+id/imageView28">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/linearLayout8"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="editar"
+                    android:id="@+id/btn_editar"
+                    android:layout_below="@+id/linearLayout8"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="right"
+                    android:clickable="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="20px"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Informacion Personal:"
+                    android:id="@+id/subhead_IP"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="30px" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="5px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Nombre:"
+                    android:id="@+id/info_name" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="10px"
+                    android:layout_height="5px" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="7"
+                    android:id="@+id/info_field_name"
+                    android:editable="false"
+                    android:enabled="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="5px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Sexo:"
+                    android:id="@+id/info_gender" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="5px" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:id="@+id/info_field_gender"
+                    android:ems="2"
+                    android:enabled="false"
+                    android:text="M" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Correo:"
+                    android:id="@+id/info_email" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="5px" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/info_field_email"
+                    android:enabled="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Telefono:"
+                    android:id="@+id/info_phone" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="5px" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:id="@+id/info_field_phone"
+                    android:enabled="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dirreción:"
+                    android:id="@+id/info_address"/>
+
+                <android.support.v4.widget.Space
+                android:layout_width="30px"
+                android:layout_height="match_parent" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:id="@+id/info_field_address"
+                    android:enabled="false" />
+
+            </LinearLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="30px" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="20px"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Informacion de Pago:"
+                    android:id="@+id/subhead_InPago"
+                    android:textColor="#000000"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Forma de Pago:"
+                    android:id="@+id/info_formadepago" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="30px"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/info_field_formPago"
+                    android:ems="5"
+                    android:inputType="text"
+                    android:enabled="false" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Numero en la Tarjeta"
+                    android:layout_above="@+id/cardNumber"
+                    android:textSize="10pt"
+                    android:textColor="#000" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardNumber"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:text="4242 4242 4242 4242" />
+
+                <EditText
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/month"
+                    android:layout_below="@+id/cardNumber"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="12" />
+
+                <EditText
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/year"
+                    android:text="19"
+                    android:layout_below="@+id/cardNumber"
+                    android:layout_toRightOf="@+id/textView"
+                    android:layout_toEndOf="@+id/textView" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="/"
+                    android:id="@+id/textView"
+                    android:layout_alignBottom="@+id/month"
+                    android:layout_toRightOf="@+id/month"
+                    android:layout_toEndOf="@+id/month" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cvc"
+                    android:text="123"
+                    android:layout_below="@+id/cardNumber"
+                    android:layout_toRightOf="@+id/year"
+                    android:layout_toEndOf="@+id/year"
+                    android:layout_marginLeft="49dp"
+                    android:layout_marginStart="49dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confirmar"
+                    android:id="@+id/submitButton"
+                    android:layout_below="@+id/cvc"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:onClick="submitCard"
+                    android:layout_alignParentStart="true"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView28"
+        android:src="@mipmap/ic_mastercard"
+        android:layout_marginLeft="84dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView29"
+        android:layout_alignTop="@+id/imageView28"
+        android:layout_toRightOf="@+id/imageView28"
+        android:layout_toEndOf="@+id/imageView28"
+        android:src="@mipmap/ic_visacard" />
+
+</RelativeLayout>

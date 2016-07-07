@@ -1,0 +1,159 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.edu.paytonramirezg.clinchacha.LimpiezaFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/lt_sweep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elige los Servicios:"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:id="@+id/header_services"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barrer y trapear"
+                android:background="#FFFFFF"
+                android:id="@+id/serv1"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp"
+                android:checked="true"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hacer recámara"
+                android:background="#FFFFFF"
+                android:id="@+id/serv2"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp"
+                android:checked="true"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Limpiar baños"
+                android:background="#FFFFFF"
+                android:id="@+id/serv3"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp"
+                android:checked="true"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recoger"
+                android:background="#FFFFFF"
+                android:id="@+id/serv4"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp"
+                android:checked="true"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sacar basura"
+                android:background="#FFFFFF"
+                android:id="@+id/serv5"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp"
+                android:checked="true"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lavar trastes"
+                android:background="#FFFFFF"
+                android:id="@+id/serv6"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp"
+                android:checked="true"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pasear al perro"
+                android:background="#FFFFFF"
+                android:id="@+id/serv7"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desinfectar inodoros"
+                android:background="#FFFFFF"
+                android:id="@+id/serv8"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lavar ropa"
+                android:background="#FFFFFF"
+                android:id="@+id/serv9"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Planchar ropa"
+                android:background="#FFFFFF"
+                android:id="@+id/serv10"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Limpiar ventanas"
+                android:background="#FFFFFF"
+                android:id="@+id/serv11"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ayudarte en la cocina"
+                android:background="#FFFFFF"
+                android:id="@+id/serv12"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Limpiar armarios"
+                android:background="#FFFFFF"
+                android:id="@+id/serv13"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Limpiar refrigerador a fondo"
+                android:background="#FFFFFF"
+                android:id="@+id/serv14"
+                android:buttonTint="#8cc17d"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!--Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Confirmar"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:background="#93c9a4"
+        android:textSize="15sp"
+        android:id="@+id/bt_confirm_purch"
+        android:layout_alignParentBottom="true"/-->
+
+</RelativeLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relativeLayout19"
+        android:background="#3c7557"
+        android:layout_alignParentTop="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relativeLayout20"
+        android:background="#93c9a4"
+        android:layout_below="@+id/relativeLayout19">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="AYUDA"
+            android:id="@+id/header_help"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="15pt" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relativeLayout21"
+        android:background="#3c7557"
+        android:layout_below="@+id/relativeLayout20" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:id="@+id/scrollView6"
+        android:layout_below="@+id/relativeLayout21"
+        android:layout_alignParentBottom="true"
+        android:fillViewport="false"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Comunicate con nosotros, envia tu comentario o reporte de algun caso."
+                    android:id="@+id/help_info_msg"
+                    android:textColor="#000000"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="false"
+                    android:paddingLeft="10dp"
+                    android:layout_alignParentTop="true" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#93c9a4"
+                    android:layout_below="@+id/help_info_msg">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:background="#ffffff">
+
+                        <ImageButton
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/imageButton"
+                            android:src="@drawable/mail"
+                            android:background="#30ffffff"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ExpandableListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/expandableListView"
+        android:layout_below="@+id/relativeLayout21" />
+
+</RelativeLayout>

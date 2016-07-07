@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/username"
+            android:title="Perfil" />
+        <item
+            android:id="@+id/nav_calander"
+            android:icon="@drawable/calander"
+            android:title="Reserva" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/age"
+            android:title="Historial" />
+        <item
+            android:id="@+id/nav_promotions"
+            android:icon="@drawable/promotions"
+            android:title="Promociones" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/broom"
+            android:title="Sobre Nosotros" />
+
+
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/help"
+                android:title="Ayuda" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/signout"
+                android:title="Salir" />
+    </group>
+</menu>

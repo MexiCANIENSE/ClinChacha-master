@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Clin</string>
+    <string name="facebook_app_id">987525821314621</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="promotion_content">Recuerda compartir tu código y recibir 20% de desc. En tu servicio Clin.</string>
+    <string name="About_content">En Clin conectamos por medio de una aplicación móvil personas que brindan servicios de limpieza doméstica con personas que lo necesitan.\nTrabajamos duro para brindarte un servicio de la más alta calidad que te deje la tranquilidad de abrirnos tus puertas.</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="desc_standard">Limpieza de interiores (Sala y cocina)\n\n Baños 2 max\n\nRecamaras</string>
+    <string name="desc_premium">Interiores\n\nBaños (2 o más)\n\nRecámaras\n\nServicio lavandería ( x kg)</string>
+    <string name="place_details">place_details</string>
+    <string name="com.stripe.publishable_key" translatable="false">pk_live_H5R8kDuOWoKr3BCcnmOFJqTB</string>
+    <string name="standard_servDisc">\n\tLimpieza de interiores (Sala y cocina)\n\tBaños 2 máx\n\tRecámaras \n</string>
+    <string name="premium_servDisc">\n\tInteriores\n\tBaños (2 o más)\n\tRecámaras\n\tServicio lavandería ( x kg)\n</string>
+
+    <string name="password">Contrase&#241;a</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
