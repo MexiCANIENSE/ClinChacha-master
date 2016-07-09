@@ -7,9 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class LimpiezaFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
+
+    View rootView;
+    LinearLayout llLimpieza;
+    RadioGroup radiog;
 
     public LimpiezaFragment() {
         // Required empty public constructor
@@ -32,7 +39,40 @@ public class LimpiezaFragment extends Fragment {
                 // update your model (or other business logic) based on isChecked
             }
         });*/
-        return inflater.inflate(R.layout.fragment_limpieza, container, false);
+
+        rootView = inflater.inflate(R.layout.fragment_limpieza, container, false);
+
+        InitValues();
+        InitListener();
+
+        return rootView;
+    }
+
+    private void InitValues(){
+
+        llLimpieza = (LinearLayout) rootView.findViewById(R.id.ll_limpieza);
+        radiog = (RadioGroup) rootView.findViewById(R.id.radiogroub_home);
+
+    }
+
+    private void InitListener(){
+        radiog.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
+                    case R.id.dom_cas:
+                        break;
+                    case R.id.dom_dep:
+                        break;
+                }
+            }
+        });
+    }
+
+    public void ChangeStatusLimpieza(boolean isChecked){
+
+        if(isChecked) llLimpieza.setVisibility(View.VISIBLE);
+        else llLimpieza.setVisibility(View.GONE);
     }
 
     /**

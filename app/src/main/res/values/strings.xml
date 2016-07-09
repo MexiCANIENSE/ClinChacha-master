@@ -17,7 +17,7 @@
     <string name="standard_servDisc">\n\tLimpieza de interiores (Sala y cocina)\n\tBaños 2 máx\n\tRecámaras \n</string>
     <string name="premium_servDisc">\n\tInteriores\n\tBaños (2 o más)\n\tRecámaras\n\tServicio lavandería ( x kg)\n</string>
 
-    <string name="password">Contrase&#241;a</string>
+    <string name="password">Contrase\u00f1a</string>
 
     <string name="et_lavanderia">Lavandería</string>
     <string name="costo_lavanderia"></string>
@@ -33,6 +33,9 @@
     <string name="et_sueter">Sueter</string>
     <string name="et_palatzo">Palatzo</string>
     <string name="et_vestido">Vestido</string>
+
+    <string name="togg_limpieza">Limpieza</string>
+    <string name="togg_tintoreria">Tintorería</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

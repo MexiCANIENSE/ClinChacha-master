@@ -9,10 +9,52 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/lt_sweep"
+            android:id="@+id/ll_limpieza"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirma Tipo de Domicilio"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:id="@+id/header_dom"
+                android:layout_marginLeft="20dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/radiogroub_home">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Casa"
+                        android:background="#FFFFFF"
+                        android:id="@+id/dom_cas"
+                        android:buttonTint="#8cc17d"
+                        android:checked="true"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Departamento"
+                        android:background="#FFFFFF"
+                        android:id="@+id/dom_dep"
+                        android:buttonTint="#8cc17d" />
+                </RadioGroup>
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

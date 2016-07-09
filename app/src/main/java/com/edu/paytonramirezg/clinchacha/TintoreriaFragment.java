@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -23,6 +24,8 @@ public class TintoreriaFragment extends Fragment {
     EditText cantLavanderia, cantDelicado, cant2Piezas, cantAbrigo, cantEdredon, cantPlanchado, cantChaleco, cantChamarra, cantFalda, cantSueter, cantPalatzo, cantVestido;
     TextView tvLavanderia, tvDelicado, tv2Piezas, tvAbrigo, tvEdredon, tvPlanchado, tvChaleco, tvChamarra, tvFalda, tvSueter, tvPalatzo, tvVestido;
     int vLavanderia = 0, vDelicado = 0, v2Piezas = 0, vAbrigo = 0, vEdredon = 0, vPlanchado = 15, vChaleco = 42, vChamarra = 57, vFalda = 42, vSueter = 42, vPalatzo = 74, vVestido = 74;
+
+    LinearLayout llTintoreria;
 
     public TintoreriaFragment() {
         // Required empty public constructor
@@ -48,6 +51,8 @@ public class TintoreriaFragment extends Fragment {
     }
 
     private void initValues(){
+
+        llTintoreria = (LinearLayout) rootView.findViewById(R.id.ll_tintoreria);
 
         spinLavanderia = (Spinner) rootView.findViewById(R.id.spinner_lavanderia);
         cantLavanderia = (EditText) rootView.findViewById(R.id.et_lavanderia);
@@ -270,6 +275,11 @@ public class TintoreriaFragment extends Fragment {
 
     }
 
+    public void ChangeStatusTintoreria(boolean isChecked){
+
+        if(isChecked) llTintoreria.setVisibility(View.VISIBLE);
+        else llTintoreria.setVisibility(View.GONE);
+    }
 
     private void initSpinners(){
 

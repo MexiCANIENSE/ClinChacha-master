@@ -348,40 +348,58 @@
             <LinearLayout
                 android:id="@+id/check_services"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="@dimen/activity_horizontal_margin">
+                android:layout_height="70dp"
+                android:orientation="vertical"
+                android:padding="@dimen/fragment_padding_inner">
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_newlogo"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_standard3"
-                    android:id="@+id/image_sweep" />
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_newlogo"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_premium2"
-                    android:id="@+id/image_laundry" />
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_newlogo"
-                    android:visibility="invisible" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ic_newlogo"
+                        android:visibility="invisible"/>
+
+                    <ToggleButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:id="@+id/toggle_limpieza"
+                        android:checked="true"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="@drawable/toggle_limpieza"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ic_newlogo"
+                        android:visibility="invisible"/>
+
+
+                    <ToggleButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:id="@+id/toggle_tintoreria"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="@drawable/toggle_tintoreria"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ic_newlogo"
+                        android:visibility="invisible"/>
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
