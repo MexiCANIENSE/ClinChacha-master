@@ -71,8 +71,7 @@
                 android:background="#FFFFFF"
                 android:id="@+id/serv1"
                 android:buttonTint="#8cc17d"
-                android:layout_marginLeft="30dp"
-                android:checked="true"/>
+                android:layout_marginLeft="30dp"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,8 +79,7 @@
                 android:background="#FFFFFF"
                 android:id="@+id/serv2"
                 android:buttonTint="#8cc17d"
-                android:layout_marginLeft="30dp"
-                android:checked="true"/>
+                android:layout_marginLeft="30dp"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,8 +87,7 @@
                 android:background="#FFFFFF"
                 android:id="@+id/serv3"
                 android:buttonTint="#8cc17d"
-                android:layout_marginLeft="30dp"
-                android:checked="true"/>
+                android:layout_marginLeft="30dp"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,8 +95,7 @@
                 android:background="#FFFFFF"
                 android:id="@+id/serv4"
                 android:buttonTint="#8cc17d"
-                android:layout_marginLeft="30dp"
-                android:checked="true"/>
+                android:layout_marginLeft="30dp"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,8 +103,7 @@
                 android:background="#FFFFFF"
                 android:id="@+id/serv5"
                 android:buttonTint="#8cc17d"
-                android:layout_marginLeft="30dp"
-                android:checked="true"/>
+                android:layout_marginLeft="30dp"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,8 +111,7 @@
                 android:background="#FFFFFF"
                 android:id="@+id/serv6"
                 android:buttonTint="#8cc17d"
-                android:layout_marginLeft="30dp"
-                android:checked="true"/>
+                android:layout_marginLeft="30dp"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
