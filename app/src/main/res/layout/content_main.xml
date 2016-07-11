@@ -110,7 +110,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="75dp"
                 android:id="@+id/receipt_rl"
-                android:background="#92c284"
+                android:background="#93c9a4"
                 android:visibility="invisible">
 
                 <RelativeLayout
@@ -271,7 +271,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:background="#92c284"
+                        android:background="#93c9a4"
                         android:textColor="#ffffff" />
 
 
@@ -302,7 +302,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/tb_split"
                             android:text="Compartir la cuenta"
-                            android:background="#92c284"
+                            android:background="#93c9a4"
                             android:textColor="#ffffff"
                             android:padding="5dp"
                             android:layout_below="@+id/textViewcosttotal"
@@ -370,7 +370,8 @@
                         android:checked="true"
                         android:textOff=""
                         android:textOn=""
-                        android:background="@drawable/toggle_limpieza"/>
+                        android:padding="10dp"
+                        android:background="@drawable/housekeeper"/>
 
                     <View
                         android:layout_width="0dp"
@@ -387,7 +388,8 @@
                         android:id="@+id/toggle_tintoreria"
                         android:textOff=""
                         android:textOn=""
-                        android:background="@drawable/toggle_tintoreria"/>
+                        android:padding="10dp"
+                        android:background="@drawable/laundry"/>
 
                     <View
                         android:layout_width="0dp"
