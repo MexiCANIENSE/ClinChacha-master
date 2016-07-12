@@ -1,8 +1,11 @@
 package com.edu.paytonramirezg.clinchacha;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +26,7 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class ReserveActivity extends AppCompatActivity implements
         TimePickerDialog.OnTimeSetListener,
@@ -33,8 +37,10 @@ public class ReserveActivity extends AppCompatActivity implements
     private TextView timeTextView;
     private TextView dateTextView;
     private Button reserve;
-    public String ACTIVEUSERNAME;
+    public String ACTIVEUSERNAME, COMMENTS = "";
     public String DATE = "", TIME = "", ADDRESS = "";
+    private static final String ReserveURL = "http://clinapp.es/php/reserve.php";
+
 
     PlaceAutocompleteFragment autocompleteFragment;
 
@@ -214,6 +220,48 @@ public class ReserveActivity extends AppCompatActivity implements
         */
     }
 
+    private void userReserve(final String username, final String date, final String time, final String comments, final String address){
+        class UserReserveClass extends AsyncTask<String,Void,String> {
+            ProgressDialog loading;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(ReserveActivity.this,"Favor de esperar",null,true,true);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                if(s.equalsIgnoreCase("success")){
+
+                    Toast.makeText(getApplicationContext(), "Reservado", Toast.LENGTH_LONG).show();
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Error de conectividad", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+                HashMap<String,String> data = new HashMap<>();
+                data.put("username", params[0]);
+                data.put("date",params[1]);
+                data.put("time",params[2]);
+                data.put("comments",params[3]);
+                data.put("address",params[4]);
+
+                RegisterUserClass ruc = new RegisterUserClass();
+
+                String result = ruc.sendPostRequest(ReserveURL,data);
+
+                return result;
+            }
+        }
+        UserReserveClass ulc = new UserReserveClass();
+        ulc.execute(username, date, time, comments, address);
+    }
+
     @Override
     public void onError(Status status) {
         Toast.makeText(
@@ -226,7 +274,7 @@ public class ReserveActivity extends AppCompatActivity implements
     @Override
     public void onClick(View view) {
         if(view == reserve){
-            //TODO
+            userReserve(ACTIVEUSERNAME,DATE,TIME,COMMENTS,ADDRESS);
         }
     }
 }

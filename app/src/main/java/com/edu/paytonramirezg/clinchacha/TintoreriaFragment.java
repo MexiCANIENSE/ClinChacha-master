@@ -15,7 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TintoreriaFragment extends Fragment {
 
@@ -26,6 +28,8 @@ public class TintoreriaFragment extends Fragment {
     int vLavanderia = 0, vDelicado = 0, v2Piezas = 0, vAbrigo = 0, vEdredon = 0, vPlanchado = 15, vChaleco = 42, vChamarra = 57, vFalda = 42, vSueter = 42, vPalatzo = 74, vVestido = 74;
 
     LinearLayout llTintoreria;
+    public static HashMap<Integer,Integer> SelectedTinto = new HashMap<>();
+    public static HashMap<Integer,Integer> PriceTinto = new HashMap<>();
 
     public TintoreriaFragment() {
         // Required empty public constructor
@@ -34,7 +38,6 @@ public class TintoreriaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -47,6 +50,7 @@ public class TintoreriaFragment extends Fragment {
         initEditListener();
         initSpinners();
 
+        ChangeStatusTintoreria(false);
         return rootView;
     }
 
@@ -107,16 +111,19 @@ public class TintoreriaFragment extends Fragment {
 
         cantLavanderia.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                tvLavanderia.setText("$"+ (vLavanderia * Integer.parseInt(!cantLavanderia.getText().toString().isEmpty() ?
-                        cantLavanderia.getText().toString() : "0") ));
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                tvLavanderia.setText("$" + (vLavanderia * Integer.parseInt(!cantLavanderia.getText().toString().isEmpty() ?
+                        cantLavanderia.getText().toString() : "0")));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(0, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantDelicado.addTextChangedListener(new TextWatcher() {
@@ -130,7 +137,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(1, Integer.valueOf(editable.toString()));
+            }
         });
 
         cant2Piezas.addTextChangedListener(new TextWatcher() {
@@ -144,7 +153,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(2, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantAbrigo.addTextChangedListener(new TextWatcher() {
@@ -158,7 +169,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(3, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantEdredon.addTextChangedListener(new TextWatcher() {
@@ -172,7 +185,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(4, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantPlanchado.addTextChangedListener(new TextWatcher() {
@@ -186,7 +201,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(5, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantChaleco.addTextChangedListener(new TextWatcher() {
@@ -200,7 +217,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(6, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantChamarra.addTextChangedListener(new TextWatcher() {
@@ -214,7 +233,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(7, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantFalda.addTextChangedListener(new TextWatcher() {
@@ -228,7 +249,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(8, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantSueter.addTextChangedListener(new TextWatcher() {
@@ -242,7 +265,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(9, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantPalatzo.addTextChangedListener(new TextWatcher() {
@@ -256,7 +281,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(10, Integer.valueOf(editable.toString()));
+            }
         });
 
         cantVestido.addTextChangedListener(new TextWatcher() {
@@ -270,7 +297,9 @@ public class TintoreriaFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+                SelectedTinto.put(11, Integer.valueOf(editable.toString()));
+            }
         });
 
     }
@@ -313,6 +342,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
+                PriceTinto.put(0, vLavanderia);
 
 
             }
@@ -354,6 +384,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
+                PriceTinto.put(1, vDelicado);
 
 
             }
@@ -378,22 +409,23 @@ public class TintoreriaFragment extends Fragment {
 
                 switch (position) {
                     case 0:
-                        vDelicado = 0;
-                        tvDelicado.setText("");
+                        v2Piezas = 0;
+                        tv2Piezas.setText("");
                         break;
                     case 1:
-                        vDelicado = 42;
-                        tvDelicado.setText(""+ (vDelicado * Integer.parseInt(!cantDelicado.getText().toString().isEmpty() ?
-                                cantDelicado.getText().toString() : "0") ));
+                        v2Piezas = 42;
+                        tv2Piezas.setText(""+ (v2Piezas * Integer.parseInt(!cant2Piezas.getText().toString().isEmpty() ?
+                                cant2Piezas.getText().toString() : "0") ));
                         break;
                     case 2:
-                        vDelicado = 46;
-                        tvDelicado.setText(""+ (vDelicado * Integer.parseInt(!cantDelicado.getText().toString().isEmpty() ?
-                                cantDelicado.getText().toString() : "0") ));
+                        v2Piezas = 46;
+                        tv2Piezas.setText(""+ (v2Piezas * Integer.parseInt(!cant2Piezas.getText().toString().isEmpty() ?
+                                cant2Piezas.getText().toString() : "0") ));
                         break;
                     default:
                         break;
                 }
+                PriceTinto.put(2, v2Piezas);
             }
 
             @Override
@@ -432,6 +464,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
+                PriceTinto.put(3, vAbrigo);
 
 
             }
@@ -473,7 +506,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
-
+                PriceTinto.put(4, vEdredon);
 
             }
 
@@ -514,6 +547,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
+                PriceTinto.put(5, vPlanchado);
 
 
             }
@@ -555,6 +589,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
+                PriceTinto.put(6, vChaleco);
 
 
             }
@@ -596,7 +631,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
-
+                PriceTinto.put(7, vChamarra);
 
             }
 
@@ -637,6 +672,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
+                PriceTinto.put(8, vFalda);
 
 
             }
@@ -678,7 +714,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
-
+                PriceTinto.put(9, vSueter);
 
             }
 
@@ -720,7 +756,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
-
+                PriceTinto.put(10, vPalatzo);
 
             }
 
@@ -761,7 +797,7 @@ public class TintoreriaFragment extends Fragment {
                     default:
                         break;
                 }
-
+                PriceTinto.put(11, vVestido);
 
             }
 
