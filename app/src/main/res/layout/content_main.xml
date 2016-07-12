@@ -168,6 +168,21 @@
                     android:layout_centerHorizontal="true"
                     android:textColor="#ffffff" />
 
+                <pl.bclogic.pulsator4droid.library.PulsatorLayout
+                    android:id="@+id/pulsator"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:pulse_count="4"
+                    app:pulse_duration="7000"
+                    app:pulse_repeat="0"
+                    app:pulse_color="@color/colorBackItems"
+                    app:pulse_startFromScratch="false"
+                    android:layout_below="@+id/timeer_txt1">
+                </pl.bclogic.pulsator4droid.library.PulsatorLayout>
+
+
+
+
             </RelativeLayout>
 
 
