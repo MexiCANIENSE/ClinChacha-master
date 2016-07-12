@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#009688</color>
     <color name="red_color">#FF0000</color>
     <color name="colorTab">#93c9a4</color>
     <color name="colorAccentTab">#FF4081</color>
@@ -10,4 +10,7 @@
     <color name="colorAccentTab3">#FF4081</color>
     <color name="colorItem">#FFFFFF</color>
     <color name="colorBackItems">#E0F2F1</color>
+    <color name="mdtp_accent_color">#009688</color>
+    <color name="mdtp_accent_color_dark">#00796b</color>
+    <color name="color_theme">#93c9a4</color>
 </resources>

@@ -65,5 +65,6 @@ dependencies {
     compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     compile 'com.android.support:support-v4:23.4.0'
     compile 'pl.bclogic:pulsator4droid:1.0.0'
+    compile 'com.wdullaer:materialdatetimepicker:2.3.0'
 
 }

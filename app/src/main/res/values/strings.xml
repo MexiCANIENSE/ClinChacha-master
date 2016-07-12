@@ -37,6 +37,11 @@
     <string name="togg_limpieza">Limpieza</string>
     <string name="togg_tintoreria">Tintorería</string>
 
+    <string name="selected_time"></string>
+    <string name="selected_date"></string>
+    <string name="pick_time">Hora</string>
+    <string name="pick_date">Fecha</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
