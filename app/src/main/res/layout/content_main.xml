@@ -441,7 +441,7 @@
                         android:textOff=""
                         android:textOn=""
                         android:padding="10dp"
-                        android:background="@drawable/housekeeper"/>
+                        android:background="@drawable/toggle_limpieza"/>
 
                     <View
                         android:layout_width="0dp"
