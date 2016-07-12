@@ -27,10 +27,12 @@ import java.util.Calendar;
 public class ReserveActivity extends AppCompatActivity implements
         TimePickerDialog.OnTimeSetListener,
         DatePickerDialog.OnDateSetListener,
-        PlaceSelectionListener {
+        PlaceSelectionListener,
+        View.OnClickListener{
 
     private TextView timeTextView;
     private TextView dateTextView;
+    private Button reserve;
     public String ACTIVEUSERNAME;
     public String DATE = "", TIME = "", ADDRESS = "";
 
@@ -49,6 +51,8 @@ public class ReserveActivity extends AppCompatActivity implements
         dateTextView = (TextView)findViewById(R.id.date_textview);
         Button timeButton = (Button)findViewById(R.id.time_button);
         Button dateButton = (Button)findViewById(R.id.date_button);
+        reserve = (Button) findViewById(R.id.confirm_reserve);
+        reserve.setOnClickListener(this);
 
         autocompleteFragment = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_autocomplete);
         autocompleteFragment.setOnPlaceSelectedListener(this);
@@ -171,8 +175,8 @@ public class ReserveActivity extends AppCompatActivity implements
 
     @Override
     public void onPlaceSelected(Place place) {
-        Toast.makeText(
-                getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+        /*Toast.makeText(
+                getApplicationContext(), "Success", Toast.LENGTH_LONG).show();*/
         String location = place.getAddress().toString();
 
         if (location == null || location.equals("")) {
@@ -189,6 +193,7 @@ public class ReserveActivity extends AppCompatActivity implements
             e.printStackTrace();
         }
 
+        ADDRESS = location;
         String address = "address=" + location;
 
         String sensor = "sensor=false";
@@ -216,5 +221,12 @@ public class ReserveActivity extends AppCompatActivity implements
                 "ERROR",
                 Toast.LENGTH_LONG).show();
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == reserve){
+            //TODO
+        }
     }
 }
