@@ -243,7 +243,6 @@
                                 android:text="Tipo de Servicio:"
                                 android:id="@+id/textView31"
                                 android:layout_marginTop="35dp"
-                                android:layout_below="@+id/textView30"
                                 android:layout_alignParentLeft="true"
                                 android:layout_alignParentStart="true"
                                 android:layout_marginLeft="20dp"
@@ -413,7 +412,7 @@
                             android:layout_height="wrap_content"
                             android:text="Cancelar Servicio"
                             android:id="@+id/button2"
-                            android:layout_below="@+id/tb_split"
+                            android:layout_below="@+id/textViewcosttotal"
                             android:layout_alignParentRight="true"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentLeft="true"
@@ -485,7 +484,7 @@
                         android:textOff=""
                         android:textOn=""
                         android:padding="10dp"
-                        android:background="@drawable/laundry"/>
+                        android:background="@drawable/toggle_tintoreria"/>
 
                     <View
                         android:layout_width="0dp"

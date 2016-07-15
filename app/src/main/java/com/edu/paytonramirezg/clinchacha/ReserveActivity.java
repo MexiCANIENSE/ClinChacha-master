@@ -76,7 +76,7 @@ public class ReserveActivity extends AppCompatActivity implements
                 tpd.setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override
                     public void onCancel(DialogInterface dialogInterface) {
-                        Log.d("TimePicker", "Dialog was cancelled");
+                        //Log.d("TimePicker", "Dialog was cancelled");
                     }
                 });
                 tpd.show(getFragmentManager(), "Timepickerdialog");

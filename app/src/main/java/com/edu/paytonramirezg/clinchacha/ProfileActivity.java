@@ -450,7 +450,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
 
             public void onError(Exception error) {
-                Log.d("Stripe", error.getLocalizedMessage());
+                //Log.d("Stripe", error.getLocalizedMessage());
             }
         });
     }
