@@ -1,10 +1,14 @@
 package com.edu.paytonramirezg.clinchacha;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,12 +21,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.edu.paytonramirezg.clinchacha.utils.ClinValidations;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener, View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+
+    private GoogleApiClient mGoogleApiClient;
+    private LocationRequest mLocationRequest;
 
     private Spinner spinner;
     private CheckBox termsNcond;
@@ -44,6 +57,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     private String enteredDOB;
     private String enteredAddress;
 
+    private String latitude;
+    private String longitude;
 
     private Button btConf;
 
@@ -52,15 +67,20 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     Typeface normal, bold;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(LocationServices.API)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .build();
 
-         normal = Typeface.createFromAsset(getBaseContext().getAssets(), "fonts/Ubahn.ttf");
-         bold = Typeface.createFromAsset(getBaseContext().getAssets(), "fonts/ubahn_light.ttf");
+
+        normal = Typeface.createFromAsset(getBaseContext().getAssets(), "fonts/Ubahn.ttf");
+        bold = Typeface.createFromAsset(getBaseContext().getAssets(), "fonts/ubahn_light.ttf");
 
         // Spinner element
         spinner = (Spinner) findViewById(R.id.spinner_genderR);
@@ -96,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         }
     }
 
-    private void initValues(){
+    private void initValues() {
         name = (EditText) findViewById(R.id.et_fullname);
         username = (EditText) findViewById(R.id.et_usernameR);
         password = (EditText) findViewById(R.id.et_passwordR);
@@ -109,7 +129,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     private void registerUser() {
 
-        if (ValidateData()){
+        if (ValidateData()) {
             enteredName = name.getText().toString();
             enteredUsername = username.getText().toString();
             enteredPassword = password.getText().toString();
@@ -119,31 +139,29 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             enteredDOB = dob.getText().toString();
             enteredAddress = address.getText().toString();
 
-            register(enteredName, enteredUsername, enteredPassword, enteredEmail, enteredAddress, enteredDOB, enteredGender);
-        }else{
-            Toast.makeText(getApplicationContext(),"Ingrese correctamente sus datos",Toast.LENGTH_LONG).show();
+            register(enteredName, enteredUsername, enteredPassword, enteredEmail, enteredAddress, enteredDOB, enteredGender, latitude, longitude);
+        } else {
+            Toast.makeText(getApplicationContext(), "Ingrese correctamente sus datos", Toast.LENGTH_LONG).show();
         }
-
 
 
     }
 
     /*VALIDATE INFO*/
 
-    private boolean ValidateData(){
+    private boolean ValidateData() {
         boolean status = false;
 
-        if(name.getText().toString().isEmpty())
+        if (name.getText().toString().isEmpty())
             name.setHintTextColor(getResources().getColor(R.color.red_color));
-        else if(username.getText().toString().isEmpty())
+        else if (username.getText().toString().isEmpty())
             username.setHintTextColor(getResources().getColor(R.color.red_color));
-        else if(password.getText().toString().isEmpty())
+        else if (password.getText().toString().isEmpty())
             password.setHintTextColor(getResources().getColor(R.color.red_color));
-        else if(!ClinValidations.isSamePassword(password.getText().toString(), confPassword.getText().toString())){
-            Toast.makeText(getApplicationContext(),"Su contraseña no coincide",Toast.LENGTH_LONG).show();
+        else if (!ClinValidations.isSamePassword(password.getText().toString(), confPassword.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Su contraseña no coincide", Toast.LENGTH_LONG).show();
             confPassword.setHintTextColor(getResources().getColor(R.color.red_color));
-        }
-        else if( !ClinValidations.isValidEmail(email.getText().toString()))
+        } else if (!ClinValidations.isValidEmail(email.getText().toString()))
             email.setHintTextColor(getResources().getColor(R.color.red_color));
         else
             status = true;
@@ -151,7 +169,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         return status;
     }
 
-    private void register(String name, String username, String password, String email, String address, String dob, String gender ) {
+    private void register(String name, String username, String password, String email, String address, String dob, String gender, String latitude, String longitude) {
         class RegisterUser extends AsyncTask<String, Void, String> {
 
             ProgressDialog loading;
@@ -161,25 +179,24 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(RegisterActivity.this, "Procesando",null, true, true);
+                loading = ProgressDialog.show(RegisterActivity.this, "Procesando", null, true, true);
             }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
 
 
-                if (termsNcond.isChecked()==true){
-                    if(s.equalsIgnoreCase("success")) {
+                if (termsNcond.isChecked() == true) {
+                    if (s.equalsIgnoreCase("success")) {
                         Intent intent = new Intent(RegisterActivity.this, Screen1.class);
                         startActivity(intent);
                     }
-                }else{
-                    Toast.makeText(getApplicationContext(),"Favor de aceptar las Condiciones de Términos de Uso",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Favor de aceptar las Condiciones de Términos de Uso", Toast.LENGTH_LONG).show();
                 }
-
 
 
             }
@@ -188,7 +205,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             protected String doInBackground(String... params) {
 
 
-                HashMap<String, String> data = new HashMap<String, String>();
+                HashMap<String, String> data = new HashMap<>();
                 data.put("name", params[0]);
                 data.put("username", params[1]);
                 data.put("password", params[2]);
@@ -196,6 +213,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 data.put("address", params[4]);
                 data.put("dob", params[5]);
                 data.put("gender", params[6]);
+                data.put("latitude", params[7]);
+                data.put("longitude", params[8]);
 
                 String result = ruc.sendPostRequest(REGISTER_URL, data);
 
@@ -206,7 +225,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         }
 
         RegisterUser ru = new RegisterUser();
-        ru.execute(name, username, password, email, address, dob, gender);
+        ru.execute(name, username, password, email, address, dob, gender, latitude, longitude);
     }
 
     @Override
@@ -217,18 +236,19 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         // Showing selected spinner item
         //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
+
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         Intent intent_register = new Intent(RegisterActivity.this, Screen1.class);
         startActivity(intent_register);
 
     }
 
-    public void setup(Typeface normal, Typeface bold){
+    public void setup(Typeface normal, Typeface bold) {
         /*username = (EditText) findViewById(R.id.et_usernameR);
         password  = (EditText) findViewById(R.id.et_passwordR);
         confPassword  = (EditText) findViewById(R.id.et_passwrodCR);
@@ -251,5 +271,63 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
 
 
+    /*
+    * LOCATION SERVICE
+    * */
+
+    @Override
+    public void onConnected(Bundle bundle) {
+
+        mLocationRequest = LocationRequest.create();
+        mLocationRequest.setInterval(1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+    }
+
+    @Override
+    public void onLocationChanged(Location location){
+        //Log.i(LOG_TAG, location.toString());
+        latitude = String.valueOf(location.getLatitude());
+        longitude = String.valueOf(location.getLongitude());
+    }
+
+    @Override
+    public void onConnectionSuspended(int i){
+        //Log.i(LOG_TAG, "Google Api Client connection has been suspended");
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        //Log.e(LOG_TAG, "Connection has failed : "+connectionResult.getErrorCode());
+    }
+
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        if (mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.disconnect();
+        }
+
+
+    }
 
 }

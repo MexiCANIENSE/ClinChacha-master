@@ -47,7 +47,7 @@ public class CHistoryActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        
+
         listRecords = new ArrayList<>();
 
         //Calling method to get data
